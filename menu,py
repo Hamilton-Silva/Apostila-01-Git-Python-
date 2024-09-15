@@ -1,0 +1,48 @@
+def menu():
+    while True:
+        # Criando um menu com as opções disponíveis para o usuário
+        print("\nEscolha uma opção:")
+        print("1. Somar")
+        print("2. Subtrair")
+        print("3. Multiplicar")
+        print("4. Dividir")
+        print("0. Sair")
+
+        # Escolha definida pelo usuário
+        opcao = input("Digite a opção desejada: ")
+
+        # Verificação de opção válida
+        if opcao in ['1', '2', '3', '4']:
+            try:
+                # Capturando os números para a realização da operação
+                num1 = float(input("Digite o primeiro número: "))
+                num2 = float(input("Digite o segundo número: "))
+
+                # Executando a operação escolhidaselecionada
+                if opcao == '1':
+                    resultado = num1 + num2
+                    print(f"Resultado: {resultado}")
+                elif opcao == '2':
+                    resultado = num1 - num2
+                    print(f"Resultado: {resultado}")
+                elif opcao == '3':
+                    resultado = num1 * num2
+                    print(f"Resultado: {resultado}")
+                elif opcao == '4':
+                    # Casos em que há divisão por zero
+                    if num2 != 0:
+                        resultado = num1 / num2
+                        print(f"Resultado: {resultado}")
+                    else:
+                        print("Erro: Divisão por zero.")
+            except ValueError:
+                # Entradas inválidas que não são números
+                print("Erro: Entrada inválida. Por favor, insira números válidos.")
+        
+        # Opção para sair do programa
+        elif opcao == '0':
+            print("Saindo...")
+            break
+        else:
+            # Opção inválida no menu
+            print("Opção inválida. Tente novamente.")
